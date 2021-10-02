@@ -3,8 +3,9 @@ import de.github.dudrie.hamster.imperative.de.starteSpiel
 import de.github.dudrie.hamster.imperative.de.stoppeSpiel
 
 fun dreheNachRechts() {
-    // TODO: Implementiere die Funktion
-
+    for (i in 1..3) {
+        dreheNachLinks()
+    }
 }
 
 fun main() {

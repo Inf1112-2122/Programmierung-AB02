@@ -1,22 +1,40 @@
-import de.github.dudrie.hamster.imperative.de.stoppeSpiel
+import de.github.dudrie.hamster.imperative.de.*
 
 fun laufeZurNaechstenWand() {
-    // TODO: a) Implementiere die Funktion
-
+    while(istVorDirFrei()) {
+        laufe()
+    }
 }
 
-// TODO: b) Erstelle die Funktion laufeZurRechtenOberenEcke()
+fun laufeZurRechtenOberenEcke() {
+    laufeZurNaechstenWand()
+    dreheNachLinks()
+    laufeZurNaechstenWand()
+}
 
+fun sammleAlleKoernerAufDeinemFeld() {
+    while (liegtEinKornAufDeinemFeld()) {
+        sammleKornAuf()
+    }
+}
 
-// TODO: c) Erstelle die Funktion sammleAlleKoernerAufDeinemFeld()
-
+fun geheZurNaechstenEckeUndSammleAlleKoerner() {
+    dreheNachLinks()
+    laufeZurNaechstenWand()
+    sammleAlleKoernerAufDeinemFeld()
+}
 
 fun main() {
     // Es sind Zahlen zwischen 0 und 2 erlaubt.
-    starteKoernerInEckenSpiel(0)
+    starteKoernerInEckenSpiel(2)
+    setzeSpielGeschwindigkeit(10.0f)
 
-    // TODO: d) Implementiere deine Lösung
+    laufeZurRechtenOberenEcke()
+    sammleAlleKoernerAufDeinemFeld()
 
+    for (ecke in 1..3) {
+        geheZurNaechstenEckeUndSammleAlleKoerner()
+    }
 
     stoppeSpiel()
 }
